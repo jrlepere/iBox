@@ -1,15 +1,16 @@
 package com.jrlepere.iBox.event_handlers;
 
-import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
-
+import java.io.File;
+import java.nio.file.Path;
 import java.nio.file.WatchEvent;
 
 public class PrintToConsoleEventHandler implements EventHandler {
 
-	public void handleEvent(WatchEvent<?> event) {
-		WatchEvent.Kind<?> kind = event.kind();
-		if (kind == OVERFLOW) return;
-		System.out.println(kind);
+	public void handleEvent(WatchEvent<?> event, File eventLocation) {
+		if (event.context() instanceof Path) {
+			File f = new File(eventLocation, ((Path) event.context()).toFile().getName());
+			System.out.println(event.kind().toString() + ": " + f);
+		}
 	}
 
 }

@@ -1,0 +1,7 @@
+{
+    "watchFolder":"<path-to-folder-to-watch>",
+    "clientRegion":"<s3-region>",
+    "accessKey":"<s3-access-key>",
+    "privateKey":"<s3-private-key>",
+    "bucketName":"<s3-bucket-name>"
+}

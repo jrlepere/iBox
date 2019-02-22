@@ -1,5 +1,6 @@
 package com.jrlepere.iBox;
 
+import java.io.File;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 
@@ -10,23 +11,24 @@ public class FolderListener {
 
 	private WatchKey key;
 	private EventHandler eventHandler;
+	private File folder;
 	
-	public FolderListener(WatchKey key, EventHandler eventHandler) {
+	public FolderListener(WatchKey key, EventHandler eventHandler, File folder) {
 		this.key = key;
 		this.eventHandler = eventHandler;
+		this.folder = folder;
 	}
 	
 	public void checkForAndHandleEvents() {
 		for (WatchEvent<?> event : key.pollEvents()) {
-	        eventHandler.handleEvent(event);
+	        eventHandler.handleEvent(event, folder);
 	    }
 	}
 	
-	public boolean resetKey() throws WatchKeyResetException {
+	public void resetKey() throws WatchKeyResetException {
 		if (!key.reset()) {
 			throw new WatchKeyResetException("Key reset was unsuccessful");
 		}
-		return true;
 	}
 	
 }
