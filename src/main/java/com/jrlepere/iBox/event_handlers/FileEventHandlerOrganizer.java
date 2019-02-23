@@ -5,7 +5,8 @@ import java.nio.file.Path;
 import java.nio.file.WatchEvent;
 import java.util.Map;
 
-import com.jrlepere.iBox.event_handlers.file_handler.FileHandler;
+import com.jrlepere.iBox.event_handlers.file_handlers.FileHandleException;
+import com.jrlepere.iBox.event_handlers.file_handlers.FileHandler;
 
 public class FileEventHandlerOrganizer implements EventHandler {
 
@@ -22,7 +23,11 @@ public class FileEventHandlerOrganizer implements EventHandler {
 	public void handleEvent(WatchEvent<?> event, File eventLocation) {
 		WatchEvent.Kind<?> eventKind = event.kind();
 		if (fileEventHandlerMap.containsKey(eventKind)) {
-			fileEventHandlerMap.get(eventKind).handleFileEvent(getFullFile(event, eventLocation));
+			try {
+				fileEventHandlerMap.get(eventKind).handleFileEvent(getFullFile(event, eventLocation));
+			} catch (FileHandleException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 	}
 	

@@ -18,7 +18,8 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.jrlepere.iBox.event_handlers.file_handler.FileHandler;
+import com.jrlepere.iBox.event_handlers.file_handlers.FileHandleException;
+import com.jrlepere.iBox.event_handlers.file_handlers.FileHandler;
 
 public class FileEventHandlerOrganizerTest {
 
@@ -52,7 +53,7 @@ public class FileEventHandlerOrganizerTest {
 	}
 	
 	@Test
-	public void testHandleEventAllCalled() {
+	public void testHandleEventAllCalled() throws FileHandleException {
 		Map<Kind<?>, FileHandler> fileEventHandlerMap = new HashMap<Kind<?>, FileHandler>() {{
 			put(ENTRY_CREATE, createFileHandler);
 			put(ENTRY_DELETE, deleteFileHandler);
@@ -65,7 +66,7 @@ public class FileEventHandlerOrganizerTest {
 	}
 	
 	@Test
-	public void testHandleEventNoneCalled() {
+	public void testHandleEventNoneCalled() throws FileHandleException {
 		Map<Kind<?>, FileHandler> fileEventHandlerMap = new HashMap<Kind<?>, FileHandler>() {{
 			put(ENTRY_CREATE, createFileHandler);
 			put(ENTRY_DELETE, deleteFileHandler);
@@ -76,7 +77,7 @@ public class FileEventHandlerOrganizerTest {
 	}
 	
 	@Test
-	public void testHandleEventOneCalled() {
+	public void testHandleEventOneCalled() throws FileHandleException {
 		Map<Kind<?>, FileHandler> fileEventHandlerMap = new HashMap<Kind<?>, FileHandler>() {{
 			put(ENTRY_CREATE, createFileHandler);
 			put(ENTRY_DELETE, deleteFileHandler);
@@ -88,7 +89,7 @@ public class FileEventHandlerOrganizerTest {
 	}
 	
 	@Test
-	public void testHandleEventNotHandledEventCalled() {
+	public void testHandleEventNotHandledEventCalled() throws FileHandleException {
 		Map<Kind<?>, FileHandler> fileEventHandlerMap = new HashMap<Kind<?>, FileHandler>() {{
 			put(ENTRY_DELETE, deleteFileHandler);
 		}};

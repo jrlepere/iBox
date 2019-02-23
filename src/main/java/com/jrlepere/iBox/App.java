@@ -21,9 +21,9 @@ import org.json.simple.parser.JSONParser;
 import com.amazonaws.services.s3.AmazonS3;
 import com.jrlepere.iBox.event_handlers.EventHandler;
 import com.jrlepere.iBox.event_handlers.FileEventHandlerOrganizer;
-import com.jrlepere.iBox.event_handlers.file_handler.AwsS3FileDelete;
-import com.jrlepere.iBox.event_handlers.file_handler.AwsS3FileUpload;
-import com.jrlepere.iBox.event_handlers.file_handler.FileHandler;
+import com.jrlepere.iBox.event_handlers.file_handlers.AwsS3FileDelete;
+import com.jrlepere.iBox.event_handlers.file_handlers.AwsS3FileUpload;
+import com.jrlepere.iBox.event_handlers.file_handlers.FileHandler;
 import com.jrlepere.iBox.exceptions.WatchKeyGenerationException;
 
 import picocli.CommandLine;

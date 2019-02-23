@@ -1,4 +1,4 @@
-package com.jrlepere.iBox.event_handlers.file_handler;
+package com.jrlepere.iBox.event_handlers.file_handlers;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -12,6 +12,14 @@ public abstract class AwsS3FileHandler implements FileHandler {
 	
 	public AwsS3FileHandler(AmazonS3 s3Client, String bucketName) {
 		this.s3Client = s3Client;
+		this.bucketName = bucketName;
+	}
+	
+	public void setS3Client(AmazonS3 s3Client) {
+		this.s3Client = s3Client;
+	}
+	
+	public void setBucketName(String bucketName) {
 		this.bucketName = bucketName;
 	}
 	
