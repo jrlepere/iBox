@@ -15,6 +15,10 @@ public class FileEventHandlerOrganizer implements EventHandler {
 		this.fileEventHandlerMap = fileEventHandlerMap;
 	}
 	
+	public void setFileEventHandlerMap(Map<WatchEvent.Kind<?>, FileHandler> fileEventHandlerMap) {
+		this.fileEventHandlerMap = fileEventHandlerMap;
+	}
+	
 	public void handleEvent(WatchEvent<?> event, File eventLocation) {
 		WatchEvent.Kind<?> eventKind = event.kind();
 		if (fileEventHandlerMap.containsKey(eventKind)) {
@@ -22,7 +26,7 @@ public class FileEventHandlerOrganizer implements EventHandler {
 		}
 	}
 	
-	private File getFullFile(WatchEvent<?> event, File eventLocation) {
+	public File getFullFile(WatchEvent<?> event, File eventLocation) {
 		return new File(eventLocation, ((Path) event.context()).toFile().getName());
 	}
 
