@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AwsS3FileUpload.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iBox</a> &gt; <a href="index.source.html" class="el_package">com.jrlepere.iBox.event_handlers.file_handlers</a> &gt; <span class="el_source">AwsS3FileUpload.java</span></div><h1>AwsS3FileUpload.java</h1><pre class="source lang-java linenums">package com.jrlepere.iBox.event_handlers.file_handlers;
+
+import java.io.File;
+
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+
+public class AwsS3FileUpload extends AwsS3FileHandler {
+	
+	public AwsS3FileUpload(AmazonS3 s3Client, String bucketName) {
+<span class="fc" id="L11">		super(s3Client, bucketName);</span>
+<span class="fc" id="L12">	}</span>
+
+	public void handleFileEvent(File file) throws FileHandleException {
+<span class="fc bfc" id="L15" title="All 2 branches covered.">		if (file.isFile()) {</span>
+			try {
+<span class="fc" id="L17">				s3Client.putObject(new PutObjectRequest(bucketName, file.getName(), file));</span>
+<span class="fc" id="L18">			} catch (Exception e) {</span>
+<span class="fc" id="L19">				String message = &quot;Failed to upload file: &quot;</span>
+<span class="fc" id="L20">						+ file.getName()</span>
+						+ &quot; from AWS S3 w/ exception: &quot;
+<span class="fc" id="L22">						+ e.getMessage();</span>
+<span class="fc" id="L23">				throw new FileHandleException(message);</span>
+<span class="fc" id="L24">			}</span>
+		}
+<span class="fc" id="L26">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

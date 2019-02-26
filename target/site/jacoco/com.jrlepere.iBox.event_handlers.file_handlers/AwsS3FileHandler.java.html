@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AwsS3FileHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iBox</a> &gt; <a href="index.source.html" class="el_package">com.jrlepere.iBox.event_handlers.file_handlers</a> &gt; <span class="el_source">AwsS3FileHandler.java</span></div><h1>AwsS3FileHandler.java</h1><pre class="source lang-java linenums">package com.jrlepere.iBox.event_handlers.file_handlers;
+
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+
+public abstract class AwsS3FileHandler implements FileHandler {
+
+	protected AmazonS3 s3Client;
+	protected String bucketName;
+	
+<span class="fc" id="L13">	public AwsS3FileHandler(AmazonS3 s3Client, String bucketName) {</span>
+<span class="fc" id="L14">		this.s3Client = s3Client;</span>
+<span class="fc" id="L15">		this.bucketName = bucketName;</span>
+<span class="fc" id="L16">	}</span>
+	
+	public void setS3Client(AmazonS3 s3Client) {
+<span class="nc" id="L19">		this.s3Client = s3Client;</span>
+<span class="nc" id="L20">	}</span>
+	
+	public void setBucketName(String bucketName) {
+<span class="nc" id="L23">		this.bucketName = bucketName;</span>
+<span class="nc" id="L24">	}</span>
+	
+	public static AmazonS3 createS3Client(String clientRegion, String accessKey, String privateKey) {
+<span class="nc" id="L27">		return AmazonS3ClientBuilder.standard()</span>
+<span class="nc" id="L28">                .withRegion(clientRegion)</span>
+<span class="nc" id="L29">                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, privateKey)))</span>
+<span class="nc" id="L30">                .build();</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
