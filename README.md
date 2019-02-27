@@ -11,3 +11,6 @@ Create or Modify the configuration file as defined in `config.json`.
 
 ## Execute
 Run `java -jar iBox-x.x.x-SNAPSHOT-jar-with-dependencies.jar <path-to-config-file>` from the command line.
+
+## Reporting
+Run `mvn site` to generate JaCoCo, CheckStyle and FindBugs reports, to be found in `target/site`.
