@@ -18,10 +18,10 @@ public class AwsS3FileUpload extends AwsS3FileHandler {
 <span class="fc" id="L18">			} catch (Exception e) {</span>
 <span class="fc" id="L19">				String message = &quot;Failed to upload file: &quot;</span>
 <span class="fc" id="L20">						+ file.getName()</span>
-						+ &quot; from AWS S3 w/ exception: &quot;
+<span class="fc" id="L21">						+ &quot; from AWS S3 w/ exception: &quot;</span>
 <span class="fc" id="L22">						+ e.getMessage();</span>
 <span class="fc" id="L23">				throw new FileHandleException(message);</span>
-<span class="fc" id="L24">			}</span>
+			}
 		}
 <span class="fc" id="L26">	}</span>
 	

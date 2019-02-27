@@ -25,9 +25,9 @@ public class FileEventHandlerOrganizer implements EventHandler {
 <span class="fc bfc" id="L25" title="All 2 branches covered.">		if (fileEventHandlerMap.containsKey(eventKind)) {</span>
 			try {
 <span class="fc" id="L27">				fileEventHandlerMap.get(eventKind).handleFileEvent(getFullFile(event, eventLocation));</span>
-<span class="nc" id="L28">			} catch (FileHandleException e) {</span>
+<span class="pc" id="L28">			} catch (FileHandleException e) {</span>
 <span class="nc" id="L29">				System.out.println(e.getMessage());</span>
-<span class="fc" id="L30">			}</span>
+			}
 		}
 <span class="fc" id="L32">	}</span>
 	

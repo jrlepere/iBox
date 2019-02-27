@@ -57,12 +57,12 @@ import picocli.CommandLine.Parameters;
 <span class="nc" id="L57">					put(ENTRY_CREATE, new AwsS3FileUpload(s3Client, bucketName));</span>
 <span class="nc" id="L58">					put(ENTRY_MODIFY, new AwsS3FileUpload(s3Client, bucketName));</span>
 <span class="nc" id="L59">					put(ENTRY_DELETE, new AwsS3FileDelete(s3Client, bucketName));</span>
-<span class="nc" id="L60">				}}</span>
+				}}
 		);
 		
 <span class="nc" id="L63">		FolderListener folderListener = new FolderListener(watchKey, eventHandler, watchFolder);</span>
 		
-		while (true) {
+<span class="nc" id="L65">		while (true) {</span>
 <span class="nc" id="L66">			folderListener.checkForAndHandleEvents();</span>
 <span class="nc" id="L67">			folderListener.resetKey();</span>
 		}

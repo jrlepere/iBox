@@ -1,12 +1,12 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-iBox,com.jrlepere.iBox.event_handlers,FileEventHandlerOrganizer,21,24,0,2,6,7,2,3,2,2
+iBox,com.jrlepere.iBox.event_handlers,FileEventHandlerOrganizer,21,24,0,2,5,7,2,3,2,2
 iBox,com.jrlepere.iBox.event_handlers,PrintToConsoleEventHandler,32,0,2,0,5,0,3,0,2,0
 iBox,com.jrlepere.iBox.event_handlers.file_handlers,FileHandleException,0,4,0,0,0,2,0,1,0,1
-iBox,com.jrlepere.iBox.event_handlers.file_handlers,AwsS3FileUpload,0,43,0,2,0,11,0,3,0,2
+iBox,com.jrlepere.iBox.event_handlers.file_handlers,AwsS3FileUpload,0,42,0,2,0,11,0,3,0,2
 iBox,com.jrlepere.iBox.event_handlers.file_handlers,AwsS3FileHandler,25,9,0,0,8,4,3,1,3,1
-iBox,com.jrlepere.iBox.event_handlers.file_handlers,AwsS3FileDelete,2,40,1,1,0,10,1,2,0,2
-iBox,com.jrlepere.iBox,App,115,0,0,0,20,0,4,0,4,0
-iBox,com.jrlepere.iBox,App.new HashMap() {...},42,0,0,0,5,0,1,0,1,0
-iBox,com.jrlepere.iBox,FolderListener,0,42,0,4,0,12,0,5,0,3
+iBox,com.jrlepere.iBox.event_handlers.file_handlers,AwsS3FileDelete,2,39,1,1,0,10,1,2,0,2
+iBox,com.jrlepere.iBox,App,114,0,0,0,22,0,4,0,4,0
+iBox,com.jrlepere.iBox,App.new HashMap() {...},30,0,0,0,4,0,1,0,1,0
+iBox,com.jrlepere.iBox,FolderListener,0,42,0,4,0,11,0,5,0,3
 iBox,com.jrlepere.iBox.exceptions,WatchKeyGenerationException,4,0,0,0,2,0,1,0,1,0
 iBox,com.jrlepere.iBox.exceptions,WatchKeyResetException,0,4,0,0,0,2,0,1,0,1

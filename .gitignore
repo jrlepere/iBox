@@ -3,6 +3,4 @@
 .settings
 target/*
 !target/site
-target/site/*
-!target/site/jacoco
 .config.json
