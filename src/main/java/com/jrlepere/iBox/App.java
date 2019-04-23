@@ -26,28 +26,18 @@ import com.jrlepere.iBox.event_handlers.file_handlers.AwsS3FileUpload;
 import com.jrlepere.iBox.event_handlers.file_handlers.FileHandler;
 import com.jrlepere.iBox.exceptions.WatchKeyGenerationException;
 
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Parameters;
-
-@Command(name = "iBox", mixinStandardHelpOptions = true)
 public class App implements Runnable {
-	
-	@Parameters(paramLabel = "CONFIG_FILE", description = "Configuration File.")
-    private static File configFile;
-	
+		
 	public static void main(String[] args) throws Exception {
 		
-		// parse command line arguments with picocli
-		CommandLine.run(new App(), args);
-		
-		JSONObject obj = (JSONObject) new JSONParser().parse(new FileReader(configFile)); 
+		JSONObject obj = (JSONObject) new JSONParser().parse(new FileReader(new File(args[0]))); 
 
-		final File watchFolder = new File((String) obj.get("watchFolder"));
 		final String clientRegion = (String) obj.get("clientRegion");
 		final String accessKey = (String) obj.get("accessKey");
 		final String privateKey = (String) obj.get("privateKey");
 		final String bucketName = (String) obj.get("bucketName");
+		
+		final File watchFolder = new File(args[1]); 
 		
 		final Kind<?>[] events = {ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY};
 		final WatchKey watchKey = generateWatchKey(watchFolder.toPath(), events);
